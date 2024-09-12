@@ -9,36 +9,60 @@ function Poster({link,title}){
     )
   }
 
+//Temporary storage for Movie information
+const movies = [{
+  id: 1,
+  name: 'Iron Man',
+  link: "src/assets/ironman1.svg",
+  title: "Iron Man Poster",
+}, {
+  id: 2,
+  name: 'Hulk',
+  link: 'src/assets/hulk.svg',
+  title: 'Hulk Poster',
+}, {
+  id: 3,
+  name: 'Iron Man 2',
+  link: 'src/assets/ironman2.svg',
+  title: 'Iron Man 2 Poster',
+}, {
+  id: 4,
+  name: 'Thor',
+  link: 'src/assets/thor.svg',
+  title: 'Thor Poster',
+}, {
+  id: 5,
+  name: 'Captain America',
+  link: 'src/assets/captainamerica.svg',
+  title: 'Captain America Poster',
+}, {
+  id: 6,
+  name: 'Avengers',
+  link: 'src/assets/avengers.svg',
+  title: 'Avengers Poster',
+}
+
+
+
+]
+
+//Posters are laid out using movie posters.
 export default function Movie(){
-    return (
-        <section>
+  const items = movies.map(movie=>
+    <Poster key={movie.id} link={movie.link} title={movie.title} />
+
+  );  
+  
+  return (
+        
+          <section>
             <h1>Movies</h1>
             <div className="showcase">
-            <Poster 
-                link={'src/assets/ironman1.svg'}
-                title = {'Iron Man Poster'}
-            />
-            <Poster 
-                link={'src/assets/hulk.svg'}
-                title = {'Hulk Poster'}
-            />
-            <Poster 
-                link={'src/assets/ironman2.svg'}
-                title = {'Iron Man 2 Poster'}
-            />
-              <Poster 
-                link={'src/assets/thor.svg'}
-                title = {'Thor Poster'}
-            />
-              <Poster 
-                link={'src/assets/captainamerica.svg'}
-                title = {'Captain America Poster'}
-            />
-              <Poster 
-                link={'src/assets/avengers.svg'}
-                title = {'Avengers Poster'}
-            />
+            {items}
             </div>
-        </section>
+        </section> 
+      
+      
+      
     )
 }  
