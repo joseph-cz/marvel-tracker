@@ -1,14 +1,19 @@
 /* eslint-disable react/prop-types */
 
 
-function Dropdown(){
+function Dropdown({phase}){
+  
+  function handleChange(){
+    alert(phase)
+  }
+  
   return(
     <>
       <label htmlFor="phase-select">
         Choose a phase:
       </label>
 
-      <select name="phases" id="phase-select">
+      <select onChange={handleChange} name="phases" id="phase-select">
         <option value="">--Please select a phase</option>
         <option value="1">Phase 1</option>
         <option value="2">Phase 2</option>
@@ -126,7 +131,7 @@ export default function Movie(){
         
           <>
           <h1>Movies</h1>
-          <Dropdown />
+          <Dropdown phase="You selected a phase" />
           
           <section>  
             <div className="showcase">
