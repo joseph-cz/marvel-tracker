@@ -4,7 +4,10 @@ A tracker to keep track of the Marvel Cinematic Universe. Planned to include sho
 
 ## Current Progress
 
-On Infinity Saga, implementing phase one
+Implementing Infinity Saga movies.
+
+- Phase 1 and 2 movies are now included in tracker.
+- Selection menu has been added but not fully functional.
 
 ## Running tracker
 
