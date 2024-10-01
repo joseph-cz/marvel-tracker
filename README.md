@@ -6,8 +6,16 @@ A tracker to keep track of the Marvel Cinematic Universe. Planned to include sho
 
 Implementing Infinity Saga movies.
 
-- Phase 1 and 2 movies are now included in tracker.
-- Selection menu has been added but not fully functional.
+- Phase 3 movies are now included in tracker.
+- Selection menu is functional.
+
+### Phase 1
+
+![Image of phase 1 on app](/src/assets/phase1.png "Phase 1 of app")
+
+### Phase 2
+
+![Image of phase 2 on app](/src/assets/phase2.png "Phase 2 of app")
 
 ## Running tracker
 

@@ -1,10 +1,17 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react"
+
+function Dropdown(){
+
+  const [phase, setPhase] = useState(1)
 
 
-function Dropdown({phase}){
-  
-  function handleChange(){
-    alert(phase)
+  const phasemovies = movies.filter(movie => movie.phase==phase);
+  const items = phasemovies.map(movie=> <Poster key={movie.id} link={movie.link} title={movie.title} />);  
+  function handleChange(e){
+    console.log(e.target.value)
+    setPhase(e.target.value)
+    
   }
   
   return(
@@ -19,6 +26,12 @@ function Dropdown({phase}){
         <option value="2">Phase 2</option>
         <option value="3">Phase 3</option>
       </select>
+      <section>  
+            <div className="showcase">
+            {items}
+            </div>
+      </section> 
+      
     </>
   )
 }
@@ -111,6 +124,83 @@ const movies = [{
   link: 'src/assets/antman.svg',
   title: 'Ant-Man Poster',
   phase: 2,
+},
+{
+  id: 13,
+  name: 'Captain America: Civil War',
+  link: 'src/assets/captainamerica3.svg',
+  title: 'Captain America Civil War Poster',
+  phase: 3,
+},
+{
+  id: 14,
+  name: 'Doctor Strange',
+  link: 'src/assets/doctorstrange.svg',
+  title: 'Doctor Strange Poster',
+  phase: 3,
+},
+{
+  id: 15,
+  name: 'Guardians of the Galaxy Vol.2',
+  link: 'src/assets/gotg2.svg',
+  title: 'Guardians of the Galaxy Vol.2 Poster',
+  phase: 3,
+},
+{
+  id: 16,
+  name: 'Spider-Man: Homecoming',
+  link: 'src/assets/spiderman.svg',
+  title: 'Spider-Man: Homecoming Poster',
+  phase: 3,
+},
+{
+  id: 17,
+  name: 'Thor: Ragnarok',
+  link: 'src/assets/thor3.svg',
+  title: 'Thor: Ragnarok Poster',
+  phase: 3,
+},
+{
+  id: 18,
+  name: 'Black Panther',
+  link: 'src/assets/blackpanther.svg',
+  title: 'Black Panther Poster',
+  phase: 3,
+},
+{
+  id: 19,
+  name: 'Avengers: Infinity War',
+  link: 'src/assets/avengers3.svg',
+  title: 'Avengers: Infinity War Poster',
+  phase: 3,
+},
+{
+  id: 20,
+  name: 'Ant-Man and the Wasp',
+  link: 'src/assets/antman2.svg',
+  title: 'Ant-Man and the Wasp Poster',
+  phase: 3,
+},
+{
+  id: 21,
+  name: 'Captain Marvel',
+  link: 'src/assets/captainmarvel.svg',
+  title: 'Captain Marvel Poster',
+  phase: 3,
+},
+{
+  id: 22,
+  name: 'Avengers: Endgame',
+  link: 'src/assets/avengers4.svg',
+  title: 'Avengers: Endgame Poster',
+  phase: 3,
+},
+{
+  id: 23,
+  name: 'Spider-Man: Far From Home',
+  link: 'src/assets/spiderman2.svg',
+  title: 'Spider-Man: Far From Home Poster',
+  phase: 3,
 }
 
 
@@ -120,24 +210,14 @@ const movies = [{
 //Posters are laid out using movie posters.
 export default function Movie(){
 
-  const phaseonemovies = movies.filter(movie => movie.phase===1);
-
-  const items = phaseonemovies.map(movie=>
-    <Poster key={movie.id} link={movie.link} title={movie.title} />
-
-  );  
-  
+ 
   return (
         
           <>
           <h1>Movies</h1>
-          <Dropdown phase="You selected a phase" />
+          <Dropdown />
           
-          <section>  
-            <div className="showcase">
-            {items}
-            </div>
-          </section> 
+        
         </>
       
       
