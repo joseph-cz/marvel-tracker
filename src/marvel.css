@@ -6,7 +6,7 @@ h1{
 .showcase
 {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(6,minmax(200px,1fr));  /*Create 6 columns at minimum 200px and max 1 fraction of available space*/
     gap: 1em;
 }
 
