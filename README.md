@@ -9,13 +9,13 @@ Implementing Infinity Saga movies.
 - Phase 3 movies are now included in tracker.
 - Selection menu is functional.
 
-### Phase 1
+### Version 1
 
-![Image of phase 1 on app](/src/assets/phase1.png "Phase 1 of app")
+![Image of version 1 of app](/src/assets/phase1.png "Version 1 of app")
 
-### Phase 2
+### Version 2
 
-![Image of phase 2 on app](/src/assets/phase2.png "Phase 2 of app")
+![Image of version 2 of app](/src/assets/phase1_version0.2.png "Version 2 of app")
 
 ## Running tracker
 
