@@ -4,10 +4,10 @@ A tracker to keep track of the Marvel Cinematic Universe. Planned to include sho
 
 ## Current Progress
 
-Implementing Infinity Saga movies.
-
-- Phase 3 movies are now included in tracker.
+- Phase 3 (Infinity Saga) movies are now included in tracker.
 - Selection menu is functional.
+- Added Bootstrap.
+- Added card system for movies. More information about movies will be added later on.
 
 ### Version 1
 
@@ -24,3 +24,4 @@ From main directory 'marvel-tracker', run 'npm run dev'.
 ## Resources
 
 React (Vite 5.4.1)
+Bootstrap 5.3.3
