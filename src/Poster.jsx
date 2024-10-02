@@ -7,7 +7,7 @@ function Dropdown(){
 
 
   const phasemovies = movies.filter(movie => movie.phase==phase);
-  const items = phasemovies.map(movie=> <Poster key={movie.id} link={movie.link} title={movie.title} />);  
+  const items = phasemovies.map(movie=> <Poster key={movie.id} link={movie.link} title={movie.title} name={movie.name} />);  
   function handleChange(e){
     console.log(e.target.value)
     setPhase(e.target.value)
@@ -20,12 +20,13 @@ function Dropdown(){
         Choose a phase:
       </label>
 
-      <select onChange={handleChange} name="phases" id="phase-select">
+      <select className="form-select form-select-lg mb-3" onChange={handleChange} name="phases" id="phase-select">
         <option value="">--Please select a phase</option>
         <option value="1">Phase 1</option>
         <option value="2">Phase 2</option>
         <option value="3">Phase 3</option>
       </select>
+      <hr className="border border-primary border-3 opacity-75"></hr>
       <section>  
             <div className="showcase">
             {items}
@@ -36,12 +37,21 @@ function Dropdown(){
   )
 }
 
-function Poster({link,title}){
+function Poster({link,title,name}){
     return(
-      <img 
-        src={link}
-        alt={title}
-      />
+      
+      <div className="card border-primary mb-3">
+        <img 
+          className="card-img-top"
+          src={link}
+          alt={title}
+        />
+        <div className="card-body">
+          <h5 className="card-title">{name}</h5>
+          <p className="card-text">Synopsis</p>
+          <a href="#" className="btn btn-primary">More info</a>
+        </div>
+      </div>
     )
   }
 
@@ -214,12 +224,10 @@ export default function Movie(){
   return (
         
           <>
-          <h1>Movies</h1>
-          <Dropdown />
-          
-        
-        </>
-      
-      
+            <h1 className="display-1">Marvel Cinematic Universe Tracker</h1>
+            
+            <Dropdown />
+            
+          </>
     )
 }  
