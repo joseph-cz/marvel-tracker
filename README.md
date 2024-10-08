@@ -7,7 +7,9 @@ A tracker to keep track of the Marvel Cinematic Universe. Planned to include sho
 - Phase 3 (Infinity Saga) movies are now included in tracker.
 - Selection menu is functional.
 - Added Bootstrap.
-- Added card system for movies. More information about movies will be added later on.
+- Added card system for movies.
+- Added Synopsis for each film.
+- Started work on implementing trailers.
 
 ### Version 1
 
