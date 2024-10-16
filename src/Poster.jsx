@@ -7,7 +7,7 @@ function Dropdown(){
 
 
   const phasemovies = movies.filter(movie => movie.phase==phase);
-  const items = phasemovies.map(movie=> <Poster key={movie.id} link={movie.link} title={movie.title} name={movie.name} description={movie.description} />);  
+  const items = phasemovies.map(movie=> <Poster key={movie.id} link={movie.link} title={movie.title} name={movie.name} description={movie.description} yt={movie.yt} />);  
   function handleChange(e){
     console.log(e.target.value)
     setPhase(e.target.value)
@@ -72,8 +72,53 @@ function MovieInfo({description}){
   )
 }
 
+let initialMovies = new Set()
 
-function Poster({link,title,name,description}){
+export function Watch({name}){
+
+  const [watchedMovies, setWatchedMovies] = useState(initialMovies);
+  
+  function handleChange(){
+    setWatchedMovies([...watchedMovies, 
+                      {moviename:name}
+                    ])
+    initialMovies.add(name)
+   
+  }
+
+  return (
+    <button onClick={handleChange} className="btn btn-secondary">Watched</button>
+  )
+}
+
+function Trailer({link,name}){
+
+  return(
+    <>
+      <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${link}`}>
+        Watch Trailer
+      </button>
+      <div className="modal fade" id={link} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog modal-lg">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h1 className="modal-title fs-5" id="exampleModalLabel">{name} Trailer</h1>
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div className="modal-body text-center">
+          <iframe width="560" height="315" src={link} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </>
+  )
+}
+
+function Poster({link,title,name,description,yt}){
     return(
       
       <div className="card border-primary mb-3">
@@ -87,6 +132,8 @@ function Poster({link,title,name,description}){
           <p className="card-text">Info</p>
           
           <MovieInfo description={description}></MovieInfo>
+          
+          <Trailer link={yt} name={name} />
         </div>
       </div>
     )
@@ -98,6 +145,7 @@ const movies = [{
   name: 'Iron Man',
   link: "src/assets/ironman1.svg",
   title: "Iron Man Poster",
+  yt: 'https://www.youtube-nocookie.com/embed/8ugaeA-nMTc?si=P43dwbPcZOyJPWYz',
   description: "Billionaire industrialist and genius inventor Tony Stark is captured by a terrorist group while demonstrating a new weapon. Using his intellect and resourcefulness, he constructs a high-tech suit of armor to escape captivity. Upon returning home, Stark refines his suit and adopts the persona of Iron Man, using his new abilities to combat threats and protect the world.",
   phase: 1
 }, {
@@ -105,6 +153,7 @@ const movies = [{
   name: 'Hulk',
   link: 'src/assets/hulk.svg',
   title: 'Hulk Poster',
+  yt: 'https://www.youtube-nocookie.com/embed/xbqNb2PFKKA?si=P57xghWzYHFW25Ny',
   description: "Scientist Bruce Banner is on the run, seeking a cure for the gamma radiation accident that transforms him into a massive green monster whenever he loses his temper. As he searches for a solution, he must evade capture by the military and confront a new, formidable adversary.",
   phase: 1
 }, {
@@ -112,6 +161,7 @@ const movies = [{
   name: 'Iron Man 2',
   link: 'src/assets/ironman2.svg',
   title: 'Iron Man 2 Poster',
+  yt: 'https://www.youtube-nocookie.com/embed/qsRZghNciIo?si=JRrAkzWssqOQJoKt',
   description: "Tony Stark faces pressure from the government, the press, and the public to share his Iron Man technology. As he grapples with his declining health due to the arc reactor in his chest, a new adversary, Russian scientist Ivan Vanko, emerges with his own version of the technology, seeking revenge against the Stark family.",
   phase: 1
 }, {
@@ -119,6 +169,7 @@ const movies = [{
   name: 'Thor',
   link: 'src/assets/thor.svg',
   title: 'Thor Poster',
+  yt: 'https://www.youtube.com/embed/w1k59SJ_-Uo?si=42jhtZ9cCM75gc0G',
   description: "In Thor, the powerful but arrogant god Thor is cast out of Asgard by his father Odin and sent to Earth as punishment. Stripped of his powers, he must learn humility and find a way to reclaim his worthiness, while facing threats from his homeland and discovering the true meaning of heroism.",
   phase: 1
 }, {
@@ -126,6 +177,7 @@ const movies = [{
   name: 'Captain America',
   link: 'src/assets/captainamerica.svg',
   title: 'Captain America Poster',
+  yt: 'https://www.youtube.com/embed/JerVrbLldXw?si=2rkAMgJweOgbGcWU',
   description: "Steve Rogers, a frail young man eager to serve his country during World War II, undergoes a transformation into the super-soldier Captain America. Armed with his new abilities, he faces off against the sinister organization HYDRA and its leader, the Red Skull.",
   phase: 1
 }, {
@@ -133,7 +185,8 @@ const movies = [{
   name: 'Avengers',
   link: 'src/assets/avengers.svg',
   title: 'Avengers Poster',
-  description: "Earth’s mightiest heroes—Iron Man, Captain America, Thor, Hulk, Black Widow, and Hawkeye—must come together to stop the mischievous Loki and his alien army from enslaving humanity.",
+  yt: 'https://www.youtube.com/embed/eOrNdBpGMv8?si=1XHedeZeAUrAWLEU',
+  description: "Earth's mightiest heroes—Iron Man, Captain America, Thor, Hulk, Black Widow, and Hawkeye—must come together to stop the mischievous Loki and his alien army from enslaving humanity.",
   phase: 1
 },
 {
