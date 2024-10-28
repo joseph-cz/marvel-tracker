@@ -2,15 +2,16 @@
 
 A tracker to keep track of the Marvel Cinematic Universe. Planned to include shows and specials.
 
-## Current Progress
+## Current features
 
-- Infinity Saga movies are now included in tracker.
-- Selection menu is functional.
-- Added Bootstrap.
-- Added card system for movies.
-- Added Synopsis for each film.
-- Added trailers for Phase 1.
-- Progress for movie tracking is being worked on
+- Infinity Saga movies are included in tracker.
+- Choose between phases 1-3 to display posters of movie, shown in theatrical release order.
+- Synopsis of film available for each film.
+- Trailer for each film available (can be watched from tracker or on YouTube).
+
+## Upcoming features
+
+- Keeping list of movies already watched and what's left.
 
 ### Version 1
 
