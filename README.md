@@ -8,10 +8,9 @@ A tracker to keep track of the Marvel Cinematic Universe. Planned to include sho
 - Choose between phases 1-3 to display posters of movie, shown in theatrical release order.
 - Synopsis of film available for each film.
 - Trailer for each film available (can be watched from tracker or on YouTube).
+- Indicate a movie is watched and add it to a list of already watched films.
 
-## Upcoming features
 
-- Keeping list of movies already watched and what's left.
 
 ### Version 1
 

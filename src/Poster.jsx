@@ -9,7 +9,7 @@ function Dropdown(){
 
   fetch("src/assets/movies.json")
     .then((response)=>{
-      console.log(response)
+      
       return response.json();
     })
     .then((json)=>{
@@ -43,6 +43,9 @@ function Dropdown(){
             {items}
             </div>
       </section> 
+      <section>
+        <Report />
+      </section>
       
     </>
   )
@@ -85,20 +88,33 @@ function MovieInfo({description}){
 
 let initialMovies = new Set()
 
-export function Watch({name}){
+function Watch({name}){
 
-  const [watchedMovies, setWatchedMovies] = useState(initialMovies);
+  const [watchedMovie, setWatchedMovie] = useState(false);
   
   function handleChange(){
-    setWatchedMovies([...watchedMovies, 
-                      {moviename:name}
-                    ])
-    initialMovies.add(name)
-   
+    
+    
+    if(initialMovies.has(name))
+    {
+      console.log(initialMovies)
+      initialMovies.delete(name)
+      setWatchedMovie(false)
+    }                 
+    else
+    {
+      initialMovies.add(name)
+      setWatchedMovie(true)
+    }
   }
-
+  if(watchedMovie == true || initialMovies.has(name))
+  {
+    return (
+      <button onClick={handleChange} className="btn btn-secondary">Watched</button>
+    )
+  }
   return (
-    <button onClick={handleChange} className="btn btn-secondary">Watched</button>
+    <button onClick={handleChange} className="btn btn-primary">Watch</button>
   )
 }
 
@@ -129,7 +145,7 @@ function Trailer({link,name}){
   )
 }
 
-function Poster({link,title,name,description,yt}){
+function Poster({link,title,name,description,yt,id}){
     return(
       
       <div className="card border-primary mb-3">
@@ -145,12 +161,28 @@ function Poster({link,title,name,description,yt}){
           <MovieInfo description={description}></MovieInfo>
           
           <Trailer link={yt} name={name} />
+
+          <Watch name={name} />
+        
         </div>
       </div>
     )
   }
 
-//Temporary storage for Movie information
+function Report(){
+
+
+const movieList = Array.from(initialMovies);
+
+const displayMovies = movieList.map(movie=><li>{movie}</li>)
+    return (
+        <>
+          <h1>Current Progress</h1>  
+          <p>{initialMovies.size} movies watched:</p>
+          <p>{displayMovies}</p>
+        </>
+    )
+}
 
 
 //Posters are laid out using movie posters.
